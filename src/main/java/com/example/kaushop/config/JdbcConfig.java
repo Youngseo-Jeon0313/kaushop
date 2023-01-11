@@ -14,15 +14,15 @@ public class JdbcConfig {
     private static Logger logger = LoggerFactory.getLogger(JdbcConfig.class);
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         try {
             EmbeddedDatabaseBuilder dbBuilder = new EmbeddedDatabaseBuilder();
 
             return dbBuilder
                     .setType(EmbeddedDatabaseType.H2)
                     .build();
-        } catch (Exception e) {
-            logger.error("임베디드 데이터베이스 빈을 생성할 수 없습니다.", e);
+        } catch(Exception e) {
+            logger.error("임베디드 데이터베이스 빈을 생성할 수 없습니다!", e);
 
             return null;
         }
