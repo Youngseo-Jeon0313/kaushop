@@ -10,11 +10,13 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-    public Product getProduct(Long id) {
-        Product product = new Product();
-        product.setId(id);
-        product.setName("상품"+id);
+    private final ProductRepository productRepository;
 
-        return product;
+    public Optional<Product> getProduct(Long id) {
+        return productRepository.findById(id);
+    }
+
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
     }
 }
